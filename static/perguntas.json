@@ -1,0 +1,37 @@
+[
+    {
+        "pergunta": "Qual o ano de fundação da Tecnosulfur?",
+        "respostas": ["2001", "1973", "1990", "1985"],
+        "correta": 2
+    },
+    {
+        "pergunta": "Qual não é uma vantagem da escória sinterizada?",
+        "respostas": ["Baixa Higroscopicidade", "Reação Rápida", "Fragilidade", "Alta Resistência"],
+        "correta": 2
+    },
+    {
+        "pergunta": "O processo de dessulfuração utiliza como principal componente",
+        "respostas": ["Ca e Mg", "Ca e Ti", "Al e Mg", "Al e Ti"],
+        "correta": 0
+    },
+    {
+        "pergunta": "O Cored wire pode ser utilizado para:",
+        "respostas": ["Adição de ligas", "Tratamento de Inclusões", "Desoxidação", "Todas as alternativas"],
+        "correta": 3
+    },
+    {
+        "pergunta": "O TECFOAM é utilizado para:",
+        "respostas": ["Remoção de impurezas no lingotamento", "Espumação de Escória em FEA", "Reação no LD", "Adição no vazamento do AF"],
+        "correta": 1
+    },
+    {
+        "pergunta": "O TruStir tem como vantagem",
+        "respostas": ["Redução do consumo de gases inertes", "Redução no consumo de ligas", "Redução da taxa de retrabalho", "Todas as alternativas"],
+        "correta": 3
+    },
+    {
+        "pergunta": "O SlagTracker identifica a passagem de escória na válvula longa por meio de",
+        "respostas": ["Vibrações", "Ultrassom", "Infra-Vermelho", "Raios-X"],
+        "correta": 0
+    }
+]
