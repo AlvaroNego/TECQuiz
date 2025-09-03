@@ -186,7 +186,7 @@ backHomeBtn.addEventListener("click", () => {
   show(startScreen);
 });
 
-document.getElementById('cadastro-form').addEventListener('submit', function (e) {
+document.getElementById('cadastroForm').addEventListener('submit', function (e) {
     e.preventDefault(); // Evita reload da página
 
     // Pega os dados do formulário

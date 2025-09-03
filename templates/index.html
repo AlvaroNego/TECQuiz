@@ -59,7 +59,7 @@
         email: form.email.value,
         promo: form.promo.checked
       };
-      const res = await fetch("/cadastrar", {
+      const res = await fetch("/cadastro", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
