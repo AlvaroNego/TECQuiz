@@ -66,11 +66,12 @@
       });
       const result = await res.json();
       if (result.status === "success") {
-        window.location.href = "/quiz";
+        window.location.href = "/templates/quiz";
       } else {
-        window.location.href = "/ja-jogou";
+        window.location.href = "/templates/ja-jogou";
       }
     });
-  </script>
+  </script>  
+  <script src="/static/quiz.js"></script>
 </body>
 </html>
