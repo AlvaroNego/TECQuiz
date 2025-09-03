@@ -15,36 +15,38 @@
 
    <main class="ts-main">
     <form id="cadastroForm" class="card">
-        <div class="form-group">
-            <label>Nome:</label>
-            <input type="text" name="nome" required>
-        </div>
-        <div class="form-group">
-            <label>Empresa/Instituição:</label>
-            <input type="text" name="empresa" required>
-        </div>
-        <div class="form-group">
-            <label>Cargo: </label>
-        </div>
-            <select name="cargo" required>
-                <option value="">Selecione</option>
-                <option>Diretor</option>
-                <option>Gerente</option>
-                <option>Engenheiro</option>
-                <option>Estudante</option>
-                <option>Outro</option>
-            </select>
-           
-        </div>
-        <div class="form-group">
-            <label>Email:</label>
-            <input type="email" name="email" required></label>
-        </div>
-            <input type="checkbox" name="promo" value="sim"> 
-            </label>Aceito receber informações promocionais </label>
-        <div class="form-group"></div>
-        <button type="submit" class = "btn-primary">Começar Quiz</button>
-        </div>
+      <div class="form-group">
+        <label>Nome:</label>
+        <input type="text" name="nome" required>
+      </div>
+      <div class="form-group">
+        <label>Empresa/Instituição:</label>
+        <input type="text" name="empresa" required>
+      </div>
+      <div class="form-group">
+        <label>Cargo:</label>
+        <select name="cargo" required>
+          <option value="">Selecione</option>
+          <option>Diretor</option>
+          <option>Gerente</option>
+          <option>Engenheiro</option>
+          <option>Estudante</option>
+          <option>Outro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label>
+          <input type="checkbox" name="promo" value="sim">
+          Aceito receber informações promocionais
+        </label>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn-primary">Começar Quiz</button>
+      </div>
     </form>
     <p id="mensagem"></p>
   </main>
@@ -72,6 +74,6 @@
       }
     });
   </script>  
-  <script src="/static/quiz.js"></script>
+  <script src="/static/cadastro.js"></script>
 </body>
 </html>

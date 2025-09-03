@@ -60,7 +60,7 @@ def home():
 
 @app.route("/quiz")
 def quiz():
-    return render_template("quiz.html")
+    return render_template("/templates/quiz.html")
 
 @app.route("/ja-jogou")
 def ja_jogou():
