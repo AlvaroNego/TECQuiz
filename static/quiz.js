@@ -175,40 +175,30 @@ startBtn.addEventListener("click", async (e) => {
   const promo  = document.getElementById("promo").checked;
   const msg    = document.getElementById("cadastro-msg");
 
-  if(!nome || !empresa || !cargo || !email){
+  if(!nome || !empresa || !cargo || !email || promo === false){
     msg.textContent = "⚠ Preencha todos os campos antes de começar.";
     return;
   }
 
-  // Monta o objeto
-  const dados = {
-      nome: nome,
-      empresa: empresa,
-      cargo: cargo,
-      email: email,
-      aceitaPromocoes: promo
-  };
-  // Faz a requisição POST para o backend
-  fetch('/cadastro', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(dados)
-  })
-  .then(response => response.json())
-  .then(data => {
-      if (data.status === 'success') {
-          // Se cadastro OK, esconde tela de cadastro e mostra quiz
-          document.getElementById('cadastro-container').style.display = 'none';
-          document.getElementById('quiz-container').style.display = 'block';
-      } else {
-          alert(data.message); // Mostra mensagem de erro (ex.: e-mail já cadastrado)
-      }
-  })
-  .catch(error => {
-      console.error('Erro:', error);
-      alert('Ocorreu um erro ao enviar os dados. Tente novamente.');
+  // --- Envia para Google Forms ---
+  const formURL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdqP6PJmmrzDglGUHbT88BzlqpKc0Kf3jkh8KZMFzghiarLYQ/formResponse";
+  const formData = new FormData();
+  formData.append("entry.256952764", nome);
+  formData.append("entry.2095918796", empresa);
+  formData.append("entry.1632623222", cargo);
+  formData.append("entry.1737381222", email);
+
+  fetch(formURL, {
+    method: "POST",
+    body: formData,
+    mode: "no-cors"
+  }).then(() => {
+    // Google não responde JSON (no-cors), mas já salva
+    msg.textContent = "";
+    iniciarQuiz(); // inicia quiz normalmente
+  }).catch(err => {
+    msg.textContent = "⚠ Erro ao salvar cadastro.";
+    console.error(err);
   });
 
   // --- Inicia o quiz normalmente ---
