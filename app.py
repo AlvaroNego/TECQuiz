@@ -1,10 +1,9 @@
 from flask import Flask, render_template, request, jsonify, send_file
-from flask_cors import CORS
 import json
 import os
 
 app = Flask(__name__)
-CORS(app)  # Permite todas as origens por padrão
+
 
 CADASTROS_FILE = os.path.join(os.path.dirname(__file__), "cadastros.json")
 TOKEN = '2005'
