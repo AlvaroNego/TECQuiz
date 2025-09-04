@@ -61,7 +61,7 @@
         email: form.email.value,
         promo: form.promo.checked
       };
-      const res = await fetch("/cadastro", {
+      const res = await fetch("http://127.0.0.1:5000/cadastro", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
