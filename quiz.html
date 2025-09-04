@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz Tecnosulfur</title>
+  <link rel="stylesheet"  href="/static/style.css" />
+</head>
+<body>
+  <header class="ts-header">
+    <img src="/static/Logo.png" alt="Tecnosulfur" class="ts-logo" />
+    <h1 class="ts-title">TECQuiz</h1>
+  </header>
+
+  <main class="ts-main">
+    <!-- TELA INICIAL -->
+    <section id="start-screen" class="card">
+      <h2>Bem-vindo!</h2>
+      <!--<p class="muted">Leia as regras, preencha seus dados e toque em <strong>Começar</strong>.</p> -->
+      <ul class="rules">
+        <li>Você responderá <strong>5 perguntas.</strong></li>
+        <li>Você terá <strong>30s</strong> para cada pergunta.</li>
+        <li>Acertando as 5, <strong>ganhará um brinde</strong> e </strong><strong>participará do sorteio de uma JBL!</strong> 🎁</li>
+      </ul>
+
+      <form id="cadastroForm">
+        <div>
+          <label>Nome:
+              <input type="text" id="nome" class = "full-width" required>
+          </label>
+        </div>
+        <div>
+          <label>Empresa/Instituição:
+            <input type="text" id="empresa" class = "full-width" required>
+          </label>
+        </div>
+        <div>
+          <label>Cargo:
+            <div>
+              <select id="cargo" class = "full-width" required>
+                <option value="">Selecione...</option>
+                <option>Diretor</option>
+                <option>Gerente</option>
+                <option>Coordenador/Supervisor</option>
+                <option>Engenheiro</option>
+                <option>Técnico</option>
+                <option>Comercial/Vendas</option>
+                <option>Estudante</option>
+                <option>Outro</option>
+              </select>
+            </div>
+          </label>
+        </div>
+        <div>
+          <label>Email:
+            <input type="email" id="email" class = "full-width" required>
+          </label>
+        </div>
+        <div>
+          <label>Telefone:
+            <input type="tel" id="telefone" class = "full-width" required maxlength="14">
+          </label>
+        </div> 
+        <label>
+          <input type="checkbox" id="promo"> Aceito receber informações promocionais
+        </label>
+      </form>
+
+      <p id="cadastro-msg" style="color:red;"></p>
+
+      <div id="status-msg" class="status hidden"></div>
+
+      <button id="start-btn" class="btn btn-primary">Começar</button>
+
+      <ul class="credits">
+        <p>Desenvolvido por Álvaro Guimarães. Versão <span class="version"></span></p>
+      </ul>
+    </section>
+
+
+
+    <!-- TELA DO QUIZ -->
+    <section id="quiz-screen" class="card hidden">
+      <div class="quiz-topbar">
+        <div id="progress" class="progress">Pergunta 1/5</div>
+        <div id="timer" class="timer">Tempo: 30s</div>
+      </div>
+
+      <h2 id="question" class="question"></h2>
+      <div id="answers" class="answers"></div>
+
+      <ul class="credits">
+        <p>Desenvolvido por Álvaro Guimarães. Versão <span class="version"></span></p>
+      </ul>
+    </section>
+
+    <!-- TELA DE RESULTADO -->
+    <section id="result-screen" class="card hidden">
+      <h2>Resultado</h2>
+      <p id="result-text" class="result-text"></p>
+      <div class="actions">
+        <button id="play-again" class="btn btn-primary">Jogar novamente</button>
+        <button id="back-home" class="btn btn-secondary">Voltar ao início</button>
+      </div>
+      <h2>Nos siga nas redes!</h2>
+      <p>E acompanhe o sorteio!</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/technosulfur-s-a/posts/?feedView=all" target="_blank" class="social-link">
+          <img src="/static/linkedin-logo.png" alt="LinkedIn" class="social-icon"> LinkedIn
+        </a>
+        <a href="https://www.instagram.com/tecnosulfur.sa?igsh=cXR2bDJsYW81YTQy" target="_blank" class="social-link">
+          <img src="/static/instagram-logo.png" alt="Instagram" class="social-icon"> Instagram
+        </a>
+      </div>
+      <ul class="credits">
+        <p>Desenvolvido por Álvaro Guimarães. Versão <span class="version"></span></p>
+      </ul>
+    </section>
+  </main>
+
+  <script src="/static/quiz.js"></script>
+</body>
+</html>
