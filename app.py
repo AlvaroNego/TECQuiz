@@ -58,15 +58,15 @@ def limpar_cadastros():
 
 @app.route("/")
 def home():
-    return render_template("index.html")
-
-@app.route("/quiz")
-def quiz():
     return render_template("quiz.html")
 
-@app.route("/ja-jogou")
-def ja_jogou():
-    return render_template("ja_jogou.html")
+#@app.route("/quiz")
+#def quiz():
+#    return render_template("quiz.html")
+#
+#@app.route("/ja-jogou")
+#def ja_jogou():
+#    return render_template("ja_jogou.html")
 
 #@app.route("/cadastrar", methods=["POST"])
 #def cadastrar():
