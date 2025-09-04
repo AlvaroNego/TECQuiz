@@ -6,6 +6,15 @@ let acertos = 0;
 let timer = null;
 let tempoRestante = 30;
 
+// Dados do cadastro
+let cadastro = {
+  nome: "",
+  empresa: "",
+  cargo: "",
+  email: "",
+  promo: false
+};
+
 // --- Elementos ---
 const startScreen   = document.getElementById("start-screen");
 const quizScreen    = document.getElementById("quiz-screen");
@@ -152,9 +161,38 @@ function verificarResposta(indiceEscolhido, btnClicado){
   }, 1200);
 }
 
+function enviarParaForms(nome, empresa, cargo, email, promo, acertos){
+  // --- Envia para Google Forms ---
+  const formURL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdqP6PJmmrzDglGUHbT88BzlqpKc0Kf3jkh8KZMFzghiarLYQ/formResponse";
+  const formData = new FormData();
+  formData.append("entry.256952764", nome);
+  formData.append("entry.2095918796", empresa);
+  formData.append("entry.1632623222", cargo);
+  formData.append("entry.1737381222", email);
+  formData.append('entry.693821394', promo ? "Sim" : "Não");
+  formData.append("entry.2107464986", acertos);
+
+  fetch(formURL, {
+    method: "POST",
+    body: formData,
+    mode: "no-cors"
+  }).then(() => {
+    // Google não responde JSON (no-cors), mas já salva
+    msg.textContent = "";
+    iniciarQuiz(); // inicia quiz normalmente
+  }).catch(err => {
+    msg.textContent = "⚠ Erro ao salvar cadastro.";
+    console.error(err);
+  });
+  
+}
+
 function finalizarQuiz(){
   hidden(quizScreen);
   show(resultScreen);
+
+  // Envia os dados do cadastro junto com a pontuação
+  enviarParaForms(cadastro.nome, cadastro.empresa, cadastro.cargo, cadastro.email, cadastro.promo, acertos);
 
   if (acertos === perguntasSelecionadas.length){
     resultTextEl.textContent = `🎉 Parabéns! Você acertou ${acertos}/${perguntasSelecionadas.length} e ganhou o brinde!`;
@@ -175,31 +213,13 @@ startBtn.addEventListener("click", async (e) => {
   const promo  = document.getElementById("promo").checked;
   const msg    = document.getElementById("cadastro-msg");
 
-  if(!nome || !empresa || !cargo || !email || promo === false){
+  if(!nome || !empresa || !cargo || !email ){
     msg.textContent = "⚠ Preencha todos os campos antes de começar.";
     return;
   }
 
-  // --- Envia para Google Forms ---
-  const formURL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdqP6PJmmrzDglGUHbT88BzlqpKc0Kf3jkh8KZMFzghiarLYQ/formResponse";
-  const formData = new FormData();
-  formData.append("entry.256952764", nome);
-  formData.append("entry.2095918796", empresa);
-  formData.append("entry.1632623222", cargo);
-  formData.append("entry.1737381222", email);
-
-  fetch(formURL, {
-    method: "POST",
-    body: formData,
-    mode: "no-cors"
-  }).then(() => {
-    // Google não responde JSON (no-cors), mas já salva
-    msg.textContent = "";
-    iniciarQuiz(); // inicia quiz normalmente
-  }).catch(err => {
-    msg.textContent = "⚠ Erro ao salvar cadastro.";
-    console.error(err);
-  });
+  // Armazena os dados no objeto global
+  cadastro = { nome, empresa, cargo, email, promo };
 
   // --- Inicia o quiz normalmente ---
   if (perguntas.length === 0) {
