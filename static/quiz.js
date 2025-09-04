@@ -12,10 +12,13 @@ let cadastro = {
   empresa: "",
   cargo: "",
   email: "",
+  telefone: "",
   promo: false
 };
 
 // --- Elementos ---
+const versao = "1.4.2"; // Versão do quiz
+
 const startScreen   = document.getElementById("start-screen");
 const quizScreen    = document.getElementById("quiz-screen");
 const resultScreen  = document.getElementById("result-screen");
@@ -35,6 +38,10 @@ const backHomeBtn   = document.getElementById("back-home");
 // --- Util ---
 const hidden = el => el.classList.add("hidden");
 const show   = el => el.classList.remove("hidden");
+
+
+
+
 
 function embaralhar(array){
   // Fisher–Yates
@@ -161,7 +168,7 @@ function verificarResposta(indiceEscolhido, btnClicado){
   }, 1200);
 }
 
-function enviarParaForms(nome, empresa, cargo, email, promo, acertos){
+function enviarParaForms(nome, empresa, cargo, email, telefone, promo, acertos){
   // --- Envia para Google Forms ---
   const formURL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdqP6PJmmrzDglGUHbT88BzlqpKc0Kf3jkh8KZMFzghiarLYQ/formResponse";
   const formData = new FormData();
@@ -169,6 +176,7 @@ function enviarParaForms(nome, empresa, cargo, email, promo, acertos){
   formData.append("entry.2095918796", empresa);
   formData.append("entry.1632623222", cargo);
   formData.append("entry.1737381222", email);
+  formData.append("entry.1913146510",telefone);
   formData.append('entry.693821394', promo ? "Sim" : "Não");
   formData.append("entry.2107464986", acertos);
 
@@ -176,6 +184,7 @@ function enviarParaForms(nome, empresa, cargo, email, promo, acertos){
     method: "POST",
     body: formData,
     mode: "no-cors"
+
   }).then(() => {
     // Google não responde JSON (no-cors), mas já salva
     msg.textContent = "";
@@ -192,16 +201,39 @@ function finalizarQuiz(){
   show(resultScreen);
 
   // Envia os dados do cadastro junto com a pontuação
-  enviarParaForms(cadastro.nome, cadastro.empresa, cadastro.cargo, cadastro.email, cadastro.promo, acertos);
+  enviarParaForms(cadastro.nome, cadastro.empresa, cadastro.cargo, cadastro.email,cadastro.telefone, cadastro.promo, acertos);
 
   if (acertos === perguntasSelecionadas.length){
-    resultTextEl.textContent = `🎉 Parabéns! Você acertou ${acertos}/${perguntasSelecionadas.length} e ganhou o brinde!`;
+    resultTextEl.innerHTML = `🎉 Parabéns!!!<br> <br>Você acertou ${acertos}/${perguntasSelecionadas.length} <br> Escolha seu brinde,<br> E boa sorte no sorteio!<br>`;
   } else {
-    resultTextEl.textContent = `Você acertou ${acertos}/${perguntasSelecionadas.length}. Tente novamente!`;
+    resultTextEl.innerHTML = `Que pena 😭<br>Você acertou ${acertos}/${perguntasSelecionadas.length}.<br>Tente novamente!`;
   }
 }
 
 // --- Controles ---
+
+// Atualiza todos os elementos com a classe .version
+document.querySelectorAll(".version").forEach(el => {
+  el.textContent = versao;
+});
+
+
+document.getElementById("telefone").addEventListener("input", function (e) {
+  let value = e.target.value.replace(/\D/g, ""); // Remove caracteres não numéricos
+
+  // Aplica a máscara dinamicamente
+  if (value.length <= 2) {
+    value = `(${value}`; // Adiciona o parêntese ao DDD
+  } else if (value.length <= 7) {
+    value = `(${value.slice(0, 2)})${value.slice(2)}`; // Adiciona o parêntese e mantém os primeiros 7 dígitos
+  } else {
+    value = `(${value.slice(0, 2)})${value.slice(2, 7)}-${value.slice(7, 11)}`; // Adiciona o hífen após o quinto dígito
+  }
+
+  e.target.value = value.slice(0, 14); // Limita o valor ao formato completo
+});
+
+
 startBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
@@ -210,16 +242,17 @@ startBtn.addEventListener("click", async (e) => {
   const empresa= document.getElementById("empresa").value.trim();
   const cargo  = document.getElementById("cargo").value;
   const email  = document.getElementById("email").value.trim();
+  const telefone  = document.getElementById("telefone").value.trim();
   const promo  = document.getElementById("promo").checked;
   const msg    = document.getElementById("cadastro-msg");
 
-  if(!nome || !empresa || !cargo || !email ){
+  if(!nome || !empresa || !cargo || !email || !telefone){
     msg.textContent = "⚠ Preencha todos os campos antes de começar.";
     return;
   }
 
   // Armazena os dados no objeto global
-  cadastro = { nome, empresa, cargo, email, promo };
+  cadastro = { nome, empresa, cargo, email, telefone, promo };
 
   // --- Inicia o quiz normalmente ---
   if (perguntas.length === 0) {
@@ -245,3 +278,6 @@ backHomeBtn.addEventListener("click", () => {
 
 // Pré-carrega perguntas ao abrir (mostra tela inicial mesmo se falhar)
 carregarPerguntas();
+//hidden(startScreen);
+//hidden(quizScreen);
+//finalizarQuiz();
