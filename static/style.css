@@ -205,3 +205,79 @@ body{
 #result-screen p {
   margin-top: 0; /* Remove a margem superior do parágrafo */
 }
+
+/* Termo de Consentimento */
+
+.ts-link{
+  background:none;
+  border:none;
+  color:var(--ts-azul);
+  text-decoration:underline;
+  cursor:pointer;
+  font:inherit;
+  padding:0;
+}
+.ts-consent{
+  display:flex;
+  gap:.6rem;
+  align-items:flex-start;
+  margin:.6rem 0 1rem;
+  color:#111827;
+}
+.ts-consent input{ margin-top:.2rem; }
+
+/* Modal */
+.ts-modal[hidden]{ display:none; }
+.ts-modal{
+  position:fixed; inset:0; z-index:1000;
+  display:grid; place-items:center;
+}
+
+.ts-modal__backdrop{
+  position:absolute; inset:0; background:rgba(0,0,0,.45);
+}
+.ts-modal__dialog{
+  position:relative;
+  width:min(720px, 92vw);
+  max-height:85vh;
+  background:var(--ts-branco);
+  border-radius:16px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.20);
+  display:flex; flex-direction:column;
+  overflow:hidden;
+}
+.ts-modal__header{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:16px 20px; background:var(--ts-azul); color:#000000;
+  background-color: rgb(255, 255, 255) ;
+}
+.ts-modal__header h2{ 
+  font-size:1.05rem; 
+  margin:0; 
+}
+.ts-modal__close{
+  background:transparent; border:none; color:#fff;
+  font-size:1.6rem; line-height:1; cursor:pointer;
+}
+.ts-modal__body{
+  padding:18px 20px;
+  overflow:auto;
+  line-height:1.55;
+  background-color: rgba(255,255,255,0.8); /* Define um fundo branco sólido */
+  
+}
+.ts-modal__body h3{ margin:1rem 0 .4rem; color:#111827 }
+.ts-modal__body ol, .ts-modal__body ul{ padding-left:1.2rem; }
+.ts-modal__footer{
+  display:flex; justify-content:flex-end; gap:.6rem;
+  padding:12px 16px; border-top:1px solid var(--ts-borda);
+  background:#fafafa;
+}
+.ts-btn{
+  background:var(--ts-azul); color:#fff; border:none; border-radius:10px;
+  padding:10px 14px; cursor:pointer; font-weight:600;
+}
+.ts-btn:hover{ background:var(--ts-azul-escuro); }
+.ts-btn--ghost{
+  background:transparent; color:#111827; border:1px solid var(--ts-borda);
+}

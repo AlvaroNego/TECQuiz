@@ -60,7 +60,15 @@
           <label>Telefone:
             <input type="tel" id="telefone" class = "full-width" required maxlength="14">
           </label>
-        </div> 
+        </div>
+        <div>
+          <label class="ts-consent">
+            <input type="checkbox" id="aceite-termo">
+            <span>Li e aceito o <button type="button" class="ts-link" id="abrir-termo" aria-haspopup="dialog" aria-controls="modal-termo">
+            Termo de Consentimento
+            </button> para Tratamento de Dados Pessoais</span>
+          </label>
+        </div>
         <label>
           <input type="checkbox" id="promo"> Aceito receber informações promocionais
         </label>
@@ -116,6 +124,52 @@
         <p>Desenvolvido por Álvaro Guimarães. Versão <span class="version"></span></p>
       </ul>
     </section>
+  
+
+
+    <!-- Modal do Termo -->
+    <div class="ts-modal" id="modal-termo" role="dialog" aria-modal="true" aria-labelledby="termo-title" aria-describedby="termo-content" hidden>
+      <div class="ts-modal__backdrop" id="fechar-termo-bg"></div>
+      <div class="ts-modal__dialog" role="document">
+        <header class="ts-modal__header">
+          <h2 id="termo-title">Termo de Consentimento para Tratamento de Dados Pessoais</h2>
+          <button class="ts-modal__close" id="fechar-termo" aria-label="Fechar">&times;</button>
+        </header>
+      
+        <div class="ts-modal__body" id="termo-content">
+          <p>A <strong>Tecnosulfur</strong> está comprometida com a proteção da sua privacidade e com o cumprimento da
+            <strong>Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 – LGPD)</strong>.</p>
+          
+          <p>Ao participar deste quiz, você nos fornece informações pessoais como <strong>nome, empresa/instituição
+            de ensino, cargo e e-mail</strong>. Esses dados serão utilizados exclusivamente para as seguintes finalidades:</p>
+          
+          <ol>
+            <li><strong>Registrar sua participação</strong> no quiz e permitir o controle de tentativas.</li>
+            <li><strong>Entrar em contato</strong> para envio de informações sobre o resultado ou entrega de brindes.</li>
+            <li><strong>Compartilhar conteúdos promocionais e institucionais</strong> da Tecnosulfur, caso você autorize
+              expressamente ao marcar a opção correspondente.</li>
+            <li><strong>Registro de imagem</strong> (fotos ou vídeos) durante a participação no estande, para fins de
+              divulgação institucional da Tecnosulfur em materiais de comunicação.</li>
+          </ol>
+        
+          <h3>Armazenamento e Segurança</h3>
+          <p>Seus dados serão armazenados em ambiente seguro e utilizados somente por pessoas autorizadas da Tecnosulfur,
+            para os fins acima descritos.</p>
+          
+          <h3>Consentimento</h3>
+          <p>Ao prosseguir com o cadastro e participar do quiz, você declara que leu e compreendeu este Termo; está de
+            acordo com o tratamento de seus dados pessoais para as finalidades aqui descritas; e autoriza, de forma
+            livre e informada, o uso de sua imagem eventualmente registrada durante o evento para divulgação institucional
+            da Tecnosulfur.</p>
+        </div>
+      
+        <footer class="ts-modal__footer">
+          <button type="button" class="ts-btn" id="aceitar-termo">Aceito o termo</button>
+          <button type="button" class="ts-btn ts-btn--ghost" id="fechar-termo-rodape">Fechar</button>
+        </footer>
+      </div>
+    </div>
+
   </main>
 
   <script src="/static/quiz.js"></script>

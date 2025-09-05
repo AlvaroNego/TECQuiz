@@ -17,7 +17,7 @@ let cadastro = {
 };
 
 // --- Elementos ---
-const versao = "1.4.2"; // Versão do quiz
+const versao = "1.4.3"; // Versão do quiz
 
 const startScreen   = document.getElementById("start-screen");
 const quizScreen    = document.getElementById("quiz-screen");
@@ -34,6 +34,16 @@ const progressEl    = document.getElementById("progress");
 const resultTextEl  = document.getElementById("result-text");
 const playAgainBtn  = document.getElementById("play-again");
 const backHomeBtn   = document.getElementById("back-home");
+
+// ==== Termo de Consentimento (modal + aceite) ====
+const abrirTermoBtn = document.getElementById('abrir-termo');
+const modalTermo    = document.getElementById('modal-termo');
+const fecharTermo   = document.getElementById('fechar-termo');
+const fecharTermoBg = document.getElementById('fechar-termo-bg');
+const fecharRodape  = document.getElementById('fechar-termo-rodape');
+const aceitarTermo  = document.getElementById('aceitar-termo');
+const aceiteCheck   = document.getElementById('aceite-termo');
+
 
 // --- Util ---
 const hidden = el => el.classList.add("hidden");
@@ -210,6 +220,14 @@ function finalizarQuiz(){
   }
 }
 
+// abre modal
+function abrirModal(){ modalTermo.hidden = false; document.body.style.overflow='hidden'; }
+// fecha modal
+function fecharModal(){ modalTermo.hidden = true; document.body.style.overflow=''; }
+
+
+
+
 // --- Controles ---
 
 // Atualiza todos os elementos com a classe .version
@@ -251,6 +269,11 @@ startBtn.addEventListener("click", async (e) => {
     return;
   }
 
+  if (aceiteCheck && !aceiteCheck.checked){
+    //show(statusMsg);
+    msg.textContent = "⚠ Você precisa aceitar o Termo de Consentimento para começar.";
+    return;
+  }
   // Armazena os dados no objeto global
   cadastro = { nome, empresa, cargo, email, telefone, promo };
 
@@ -274,6 +297,43 @@ backHomeBtn.addEventListener("click", () => {
   hidden(resultScreen);
   show(startScreen);
 });
+
+
+// wire
+abrirTermoBtn?.addEventListener('click', abrirModal);
+fecharTermo?.addEventListener('click', fecharModal);
+fecharTermoBg?.addEventListener('click', fecharModal);
+fecharRodape?.addEventListener('click', fecharModal);
+
+// botão "Aceito o termo" dentro do modal marca o checkbox e fecha
+//aceitarTermo?.addEventListener('click', () => {
+//  if (aceiteCheck) aceiteCheck.checked = true;
+//  fecharModal();
+//});
+//
+//// (opcional) impedir início do quiz se checkbox não estiver marcado
+//// Basta manter este guard no seu listener do botão Start:
+//const originalStartHandler = async (e) => {
+//  // Validação de aceite do termo:
+//  if (aceiteCheck && !aceiteCheck.checked){
+//    show(statusMsg);
+//    statusMsg.textContent = "⚠ Você precisa aceitar o Termo de Consentimento para começar.";
+//    return;
+//  }
+//
+//  // carrega perguntas se necessário e inicia:
+//  if (perguntas.length === 0) await carregarPerguntas();
+//  iniciarQuiz();
+//};
+
+// substitui seu handler anterior do startBtn
+//startBtn.replaceWith(startBtn.cloneNode(true)); // remove handlers antigos sem quebrar estilo
+//const newStartBtn = document.getElementById('start-btn') || document.querySelector('#start-screen #start-btn');
+//newStartBtn.addEventListener('click', async (e) => {
+//  e.preventDefault();
+//  // SE você já tem validação de cadastro aqui, mantenha-a ANTES deste guard.
+//  await originalStartHandler(e);
+//});
 
 
 // Pré-carrega perguntas ao abrir (mostra tela inicial mesmo se falhar)
