@@ -33,5 +33,137 @@
         "pergunta": "O SlagTracker identifica a passagem de escória na válvula longa por meio de",
         "respostas": ["Vibrações", "Ultrassom", "Infra-Vermelho", "Raios-X"],
         "correta": 0
+    },
+
+    {
+        "pergunta": "A Affival, integrante do grupo OPTA, se encontra em qual país?:",
+        "respostas": ["Suiça", "França", "Alemanha", "Chile"],
+        "correta": 1
+    },
+
+    {
+        "pergunta": "Uma escória sinterizada à base de álcalis tem como compostos principais:",
+        "respostas": ["Na2O e CaO", "Na2O e MgO", "Al2O3 e Na2O", "K2O e Na2O"],
+        "correta": 3
+    },
+
+    {   
+
+        "pergunta": "A avaliação da basicidade binária de uma escória não leva em consideração qual(is) composto(s)?:",
+        "respostas": ["SiO2", "Al2O3", "CaO", "Todas as alternativas"],
+        "correta": 1
+    },
+
+    {   
+        "pergunta": "A Tecnosulfur visa mitigar impactos ambientais na produção de escória sinterizadas por meio da utilização de:",
+        "respostas": ["Coque", "Finos de coque", "Carvão vegetal", "Todas as alternativas"],
+        "correta": 2
+    },
+
+    {   
+        "pergunta": "Uma composição de Cored Wire incoerente é:",
+        "respostas": ["Cálcio", "Bismuto", "Carbono", "Cloro"],
+        "correta": 3
+    },
+
+
+    {
+        "pergunta": "O TECFOAM é utilizado em qual reator siderúrgico?",
+        "respostas": ["Convertedor LD", "Desgaseificador à vácuo", "Forno elétrico a arco", "Alto-Forno"],
+        "correta": 2
+    },
+
+    {    
+        "pergunta": "Quais os dois compostos base dos dessulfurantes oferecidos pela Tecnosulfur?",
+        "respostas": ["CaO e Al2O3", "MgO e SiO2", "CaC2 e CaO", "CaC2 e MgO"],
+        "correta": 2
+    },
+
+    {    
+        "pergunta": "O segmento de ACS da Tecnosulfur visa o fornecimento de:",
+        "respostas": ["Matérias-Primas", "Escórias Sintéticas", "Serviços", "Equipamentos"],
+        "correta": 3
+    },
+
+    {    
+        "pergunta": "O outro tipo de dessulfurante que a Tecnosulfur oferece, além dos granulados, são os:",
+        "respostas": ["Briquetados", "Micropulverizados", "Extrudados", "Moldados"],
+        "correta": 1
+    },
+
+    {    
+        "pergunta": "O TECCOB é aplicado no processo de:",
+        "respostas": ["Lingotamento contínuo", "Aciaria", "Sinterização", "Pelotização"],
+        "correta": 0
+    },
+
+    {    
+        "pergunta": "A planta da Tecnosulfur está localizada em:",
+        "respostas": ["Belo Horizonte", "Ribeirão Preto", "Sete Lagoas", "Divinópolis"],
+        "correta": 2
+    },
+
+    {    
+        "pergunta": "Quais dos produtos abaixo não são fornecidos pela Tecnosulfur?:",
+        "respostas": ["Pó de cobertura", "Ferro esponja", "Isolante térmico", "Escória sinterizada"],
+        "correta": 1
+    },
+
+    {    
+        "pergunta": "Além da Tecnosulfur, a outra unidade que compõe a Opta LaTam chama-se:",
+        "respostas": ["Affival", "Afficom", "Affimat", "Affimex"],
+        "correta": 2
+    },
+
+    {    
+        "pergunta": "A linha de produtos TECDEP visa reduzir o teor de:",
+        "respostas": ["Silício", "Fósforo", "Enxofre", "Todas as alternativas"],
+        "correta": 1
+    },
+
+    {    
+        "pergunta": "Para a produção de escória sintética sinterizada, é necessário uma fonte de:",
+        "respostas": ["Oxidante", "Redutor", "Combustível", "Gases"],
+        "correta": 2
+    },
+
+    {    
+        "pergunta": "A Tecnosulfur é a única produtora do Ocidente de qual produto abaixo?:",
+        "respostas": ["Cored Wire", "Escória Sintética Sinterizada", "Escória Sintética Pré-Fundida", "Dessulfurante Granulado"],
+        "correta": 1
+    },
+
+    {    
+        "pergunta": "O Slag View permite evitar a passagem de:",
+        "respostas": ["Escória", "Aço líquido", "Ferro gusa", "Nenhuma das alternativas"],
+        "correta": 0
+    },
+
+    {    
+        "pergunta": "Qual dos segmentos/áreas não seriam um possível cliente da Tecnosulfur?",
+        "respostas": ["Fundição", "Aviação", "Siderúrgica", "Soldagem"],
+        "correta": 1
+    },
+
+    {    
+        "pergunta": "Qual é uma vantagem da espumação da escória?",
+        "respostas": ["Eficiencia Energetica", "Melhora a viscosidade do aço", "Captação de inclusoes", "Abertura livre de valvula"],
+        "correta": 0
+    },
+
+
+    {    
+        "pergunta": "Qual tipo de escória é mais adequada para dessulfuração?",
+        "respostas": ["Escória ácida", "Escória oxidante", "Escória básica", "Escória com alto FeO"],
+        "correta": 2
+    },
+
+
+    {    
+        "pergunta": "Qual é a reação química básica que ocorre na dessulfuração do aço líquido?",
+        "respostas": ["S + O₂ → SO₂", "S + CaO → CaS", "S + Fe → FeS", "S + CO → COS"],
+        "correta": 2
     }
+
+
 ]
