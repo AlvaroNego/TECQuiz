@@ -157,7 +157,7 @@
     {    
         "pergunta": "Qual é a reação química básica que ocorre na dessulfuração do aço líquido?",
         "respostas": ["S + O₂ → SO₂", "S + CaO → CaS", "S + Fe → FeS", "S + CO → COS"],
-        "correta": 2
+        "correta": 1
     }
 
 
